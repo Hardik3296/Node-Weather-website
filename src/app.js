@@ -8,6 +8,9 @@ const forecast = require("./utils/forecast");
 //This is the line that defines the server
 const app = express();
 
+// The first argument works with heroku and 3000 is for local machine
+const port = process.env.PORT || 3000;
+
 //__dirname contains the path to the directory containing the file
 //path.join() is used to join path so that u can get to the folder/file u want
 //to reach from the given file
@@ -96,6 +99,6 @@ app.get("*", (req, res) => {
 //Function that listens to the upcoming requests
 //First argument is the port number that it listens to
 //Second argument is a callback function that is executed and can be used to set up the server
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(port, () => {
+  console.log("Server is running on port " + port);
 });
